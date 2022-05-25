@@ -11,16 +11,20 @@ pipeline{
                    def userInput = input(
                         id: 'userInput', message: 'Choose Installation/Update',
                         parameters: [
+                            if {
 
-                        booleanParam(defaultValue: true, description: '', name: 'Installation'),
-                        booleanParam(defaultValue: true, description: '', name: 'Update'),
+                              booleanParam(defaultValue: true, description: '', name: 'Installation'),
+                              choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
+                              description: 'Select Installation ',
+                              name: 'Optimizer'),
+                            }
 
-                        choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
-                        description: 'Select Installation ',
-                        name: 'Optimizer'),
-                        choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
-                        description: 'Select Update ',
-                        name: 'Optimizer'),
+                            if {
+                              booleanParam(defaultValue: true, description: '', name: 'Installation'),
+                              choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
+                              description: 'Select Installation ',
+                              name: 'Optimizer'),
+                            }
                     ])
 
                     inputOptimizer = userInput.Optimizer?:''
