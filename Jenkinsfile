@@ -12,11 +12,11 @@ pipeline{
 
         stage('build') {
             steps{
-                properties(
+                script{
+                  properties(
                   [parameters([testParam])]
-                )
-
-
+                  )
+                }
                 echo 'building...'
             }
         }
