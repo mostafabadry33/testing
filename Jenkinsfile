@@ -11,7 +11,7 @@ pipeline{
                    def userInput = input(
                         id: 'userInput', message: 'Choose Installation/Update',
                         parameters: [
-                            if {
+                            if(inputOptimizer =='Installation') {
 
                               booleanParam(defaultValue: true, description: '', name: 'Installation'),
                               choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
@@ -19,8 +19,8 @@ pipeline{
                               name: 'Optimizer'),
                             }
 
-                            if {
-                              booleanParam(defaultValue: true, description: '', name: 'Installation'),
+                            if(inputOptimizer =='Update') {
+                              booleanParam(defaultValue: true, description: '', name: 'Update'),
                               choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
                               description: 'Select Installation ',
                               name: 'Optimizer'),
