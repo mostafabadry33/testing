@@ -11,6 +11,7 @@ pipeline{
                    def userInput = input(
                         id: 'userInput', message: 'Choose Installation/Update',
                         parameters: [
+                            
                             if (inputOptimizer == "Installation") {
 
                               booleanParam(defaultValue: true, description: '', name: 'Installation'),
