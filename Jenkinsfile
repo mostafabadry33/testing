@@ -16,7 +16,10 @@ pipeline{
                         booleanParam(defaultValue: true, description: '', name: 'Update'),
 
                         choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
-                        description: 'Optimizer Selection',
+                        description: 'Select Installation ',
+                        name: 'Optimizer'),
+                        choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
+                        description: 'Select Update ',
                         name: 'Optimizer'),
                     ])
 
