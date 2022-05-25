@@ -1,7 +1,7 @@
 pipeline{
     agent { label 'BADRY.PC' }
 
-    stages{
+    stages {
         stage('Selection-options'){
             steps{
                 echo 'building...'
