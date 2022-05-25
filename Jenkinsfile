@@ -15,7 +15,7 @@ pipeline{
                         booleanParam(defaultValue: true, description: '', name: 'Installation'),
                         booleanParam(defaultValue: true, description: '', name: 'Update'),
 
-                        choice(choices: 'OpenCV DNN\nOpenVino CPU\nOnnex Run-Time\nDeep Stream NVIDIA',
+                        choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
                         description: 'Optimizer Selection',
                         name: 'Optimizer'),
                     ])
