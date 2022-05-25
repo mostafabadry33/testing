@@ -11,7 +11,7 @@ pipeline{
                   properties([
                         parameters([
                             choice(
-                                choices: ['ONE', 'TWO'], 
+                                choices: ['Installtion', 'Update'], 
                                 name: 'PARAMETER_01'
                             ),
                             booleanParam(
