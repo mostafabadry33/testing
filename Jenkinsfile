@@ -4,19 +4,19 @@ pipeline{
 
     stages {
 
-        stage('Selection-options') {
+        stage('build') {
             steps{
                 echo 'building...'
             }
         }
 
-        stage('Selection-options') {
+        stage('deploy') {
             steps{
                 echo 'building...'
             }
         }
 
-        stage('Selection-options') {
+        stage('test') {
             steps{
                 echo 'building...'
             }
