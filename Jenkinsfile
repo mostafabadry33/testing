@@ -1,5 +1,4 @@
 
-def inputOptimizer
 pipeline{
 
     agent { label 'BADRY.PC' }
@@ -11,8 +10,8 @@ pipeline{
                      properties([
                         parameters([
                             choice(
-                                choices: ['Installation', 'Update'], 
-                                name: 'PARAMETER_01'
+                                choices: ['Installation', 'Update'],
+                            
                             )
                         ])
                     ])
