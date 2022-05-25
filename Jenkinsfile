@@ -9,10 +9,11 @@ pipeline{
             steps{
                 script {
                    def userInput = input(
-                        id: 'userInput', message: 'Choose H/W Optimization!',
+                        id: 'userInput', message: 'Choose Installation/Update',
                         parameters: [
 
-                        booleanParam(defaultValue: true, description: '', name: 'Optimization'),
+                        booleanParam(defaultValue: true, description: '', name: 'Installation'),
+                        booleanParam(defaultValue: true, description: '', name: 'Update'),
 
                         choice(choices: 'OpenCV DNN\nOpenVino CPU\nOnnex Run-Time\nDeep Stream NVIDIA',
                         description: 'Optimizer Selection',
