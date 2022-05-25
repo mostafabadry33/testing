@@ -1,40 +1,28 @@
 
+def inputOptimizer
 pipeline{
 
     agent { label 'BADRY.PC' }
 
     stages {
-
-        stage('build') {
+        stage('selection Options') {
             steps{
-                script{
-                  properties([
-                        parameters([
-                            choice(
-                                choices: ['Installtion', 'Update'], 
-                                name: 'PARAMETER_01'
-                            ),
-                            booleanParam(
-                                defaultValue: true, 
-                                description: '', 
-                                name: 'BOOLEAN'
-                            ),
-                            text(
-                                defaultValue: '''
-                                this is a multi-line 
-                                string parameter example
-                                ''', 
-                                 name: 'MULTI-LINE-STRING'
-                            ),
-                            string(
-                                defaultValue: 'scriptcrunch', 
-                                name: 'STRING-PARAMETER', 
-                                trim: true
-                            )
-                        ])
+                script {
+                   def userInput = input(
+                        id: 'userInput', message: 'Choose H/W Optimization!',
+                        parameters: [
+
+                        booleanParam(defaultValue: true, description: '', name: 'Optimization'),
+
+                        choice(choices: 'OpenCV DNN\nOpenVino CPU\nOnnex Run-Time\nDeep Stream NVIDIA',
+                        description: 'Optimizer Selection',
+                        name: 'Optimizer'),
                     ])
+
+                    inputOptimizer = userInput.Optimizer?:''
+
+                    echo("You Choice Optimizer: ${inputOptimizer}")
                 }
-                echo 'building...'
             }
         }
 
