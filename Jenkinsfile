@@ -27,7 +27,10 @@ pipeline {
                         if (install == "Installation") {
                          // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
                           echo("installing apps")
-                          echo(db)
+                          if (db==true){
+                              echo("installing DB")
+
+                          }
                         }    
                         if (install == "Update") {
                          // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
