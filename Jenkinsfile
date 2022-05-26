@@ -23,9 +23,11 @@ pipeline {
                                 booleanParam(defaultValue: false, description: '', name: 'VMS'),
                             ])
                         install = userInput.install ?: ''
+                        db = userInput.DB ?: ''
                         if (install == "Installation") {
                          // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
                           echo("installing apps")
+                          echo(db)
                         }    
                         if (install == "Update") {
                          // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
