@@ -13,7 +13,6 @@ pipeline{
                      checkboxParameter(name: 'Platforms2', format: 'YAML',
                      pipelineSubmitContent: "CheckboxParameter: \n  - key: monday\n    value: monday\n  - key: tuesday\n    value: tuesday\n", description: '')
                     }
-
                 }
             }
         }
