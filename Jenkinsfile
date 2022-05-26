@@ -22,13 +22,11 @@ pipeline {
                                 booleanParam(defaultValue: false, description: '', name: 'LPR'),
                                 booleanParam(defaultValue: false, description: '', name: 'VMS'),
                             ])
-                        if (userInput.install == true) {
-                         // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
-                          echo("installing")
-                        }    
+                        install = userInput.install ?: ''
+                        echo(install)
                     //inputOptimizer = userInput.install ?: ''
 
-                    echo("You Choice Selection: ${inputOptimizer}")
+                    //echo("You Choice Selection: ${inputOptimizer}")
                 }
            }
         }
