@@ -27,6 +27,10 @@ pipeline {
                          // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
                           echo("installing apps")
                         }    
+                        if (install == "Update") {
+                         // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+                          echo("updating apps")
+                        }   
                     //inputOptimizer = userInput.install ?: ''
 
                     //echo("You Choice Selection: ${inputOptimizer}")
