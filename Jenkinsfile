@@ -8,7 +8,7 @@ pipeline {
                 script {
                     // Get the input
                     def userInput = input(
-                            id: 'userInput', message: 'Installation\Update',
+                            id: 'userInput', message: 'Installation\nUpdate',
                             parameters: [
 
                                 choice(choices: 'Installation\nUpdate',
