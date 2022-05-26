@@ -13,27 +13,24 @@ pipeline {
 
                                 choice(choices: 'Installation\nUpdate',
                                 description: 'Optimizer Selection',
-                                name: 'Optimizer'),
+                                name: 'install'),
 
-                                booleanParam(defaultValue: true, description: '', name: 'DB'),
-                                booleanParam(defaultValue: true, description: '', name: 'NTP'),
-                                booleanParam(defaultValue: true, description: '', name: 'ITS'),
-                                booleanParam(defaultValue: true, description: '', name: 'Node.Js'),
-                                booleanParam(defaultValue: true, description: '', name: 'LPR'),
-                                booleanParam(defaultValue: true, description: '', name: 'VMS'),
-
-  
+                                booleanParam(defaultValue: false, description: '', name: 'DB'),
+                                booleanParam(defaultValue: false, description: '', name: 'NTP'),
+                                booleanParam(defaultValue: false, description: '', name: 'ITS'),
+                                booleanParam(defaultValue: false, description: '', name: 'Node.Js'),
+                                booleanParam(defaultValue: false, description: '', name: 'LPR'),
+                                booleanParam(defaultValue: false, description: '', name: 'VMS'),
                             ])
+                        if (userInput.install == true) {
+                         // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+                          echo("installing")
+                        }    
+                    //inputOptimizer = userInput.install ?: ''
 
-                    // Save to variables. Default to empty string if not found.
-                    inputOptimizer = userInput.Optimizer ?: ''
-
-                    // Echo to console
-                    echo("You Choice Optimizer: ${inputOptimizer}")
+                    echo("You Choice Selection: ${inputOptimizer}")
                 }
-
-
-            }
+           }
         }
     }
 }
