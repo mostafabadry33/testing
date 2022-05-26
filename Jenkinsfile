@@ -11,17 +11,29 @@ pipeline {
                             id: 'userInput', message: 'Choose H/W Optimization!',
                             parameters: [
 
-                                booleanParam(defaultValue: true, description: '', name: 'installation'),
-                                
-                                choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
+                                choice(choices: 'installation',
                                 description: 'Optimizer Selection',
                                 name: 'Optimizer'),
 
-                                booleanParam(defaultValue: true, description: '', name: 'update'),
+                                booleanParam(defaultValue: true, description: '', name: 'DB'),
+                                booleanParam(defaultValue: true, description: '', name: 'NTP'),
+                                booleanParam(defaultValue: true, description: '', name: 'ITS'),
+                                booleanParam(defaultValue: true, description: '', name: 'Node.Js'),
+                                booleanParam(defaultValue: true, description: '', name: 'LPR'),
+                                booleanParam(defaultValue: true, description: '', name: 'VMS'),
 
-                                choice(choices: 'DB\nNTP\nITS\nNode.Js\nLPR\nVMS',
+                                choice(choices: 'update',
                                 description: 'Optimizer Selection',
                                 name: 'Optimizer'),
+
+                                booleanParam(defaultValue: true, description: '', name: 'DB'),
+                                booleanParam(defaultValue: true, description: '', name: 'NTP'),
+                                booleanParam(defaultValue: true, description: '', name: 'ITS'),
+                                booleanParam(defaultValue: true, description: '', name: 'Node.Js'),
+                                booleanParam(defaultValue: true, description: '', name: 'LPR'),
+                                booleanParam(defaultValue: true, description: '', name: 'VMS'),
+
+  
                             ])
 
                     // Save to variables. Default to empty string if not found.
