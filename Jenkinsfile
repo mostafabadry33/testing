@@ -11,18 +11,7 @@ pipeline {
                             id: 'userInput', message: 'Choose H/W Optimization!',
                             parameters: [
 
-                                choice(choices: 'installation',
-                                description: 'Optimizer Selection',
-                                name: 'Optimizer'),
-
-                                booleanParam(defaultValue: true, description: '', name: 'DB'),
-                                booleanParam(defaultValue: true, description: '', name: 'NTP'),
-                                booleanParam(defaultValue: true, description: '', name: 'ITS'),
-                                booleanParam(defaultValue: true, description: '', name: 'Node.Js'),
-                                booleanParam(defaultValue: true, description: '', name: 'LPR'),
-                                booleanParam(defaultValue: true, description: '', name: 'VMS'),
-
-                                choice(choices: 'update',
+                                choice(choices: 'Installation\nUpdate',
                                 description: 'Optimizer Selection',
                                 name: 'Optimizer'),
 
