@@ -24,17 +24,30 @@ pipeline {
                             ])
                         install = userInput.install ?: ''
                         db = userInput.DB ?: ''
+                        ntp = userInput.NTP ?: ''
                         if (install == "Installation") {
-                         // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+                         
                           echo("installing apps")
                           if (db==true){
                               echo("installing DB")
 
                           }
+                          if (ntp==true){
+                              echo("installing ntp")
+
+                          }
                         }    
                         if (install == "Update") {
-                         // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+                         
                           echo("updating apps")
+                          if (db==true){
+                              echo("updating db")
+
+                          }
+                          if (ntp==true){
+                              echo("updating ntp")
+
+                          }
                         }   
                     //inputOptimizer = userInput.install ?: ''
 
