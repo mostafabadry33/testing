@@ -23,7 +23,10 @@ pipeline {
                                 booleanParam(defaultValue: false, description: '', name: 'VMS'),
                             ])
                         install = userInput.install ?: ''
-                        echo(install)
+                        if (install == "Installation") {
+                         // tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+                          echo("installing apps")
+                        }    
                     //inputOptimizer = userInput.install ?: ''
 
                     //echo("You Choice Selection: ${inputOptimizer}")
