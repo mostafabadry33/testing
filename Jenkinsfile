@@ -11,7 +11,7 @@ pipeline {
                             id: 'userInput', message: 'Installation\nUpdate',
                             parameters: [
 
-                                choice(choices: 'Installation\nUpdate',
+                                choice(choices: 'Installation',
                                 description: 'Optimizer Selection',
                                 name: 'install'),
 
