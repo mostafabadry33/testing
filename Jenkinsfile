@@ -80,12 +80,8 @@ pipeline {
                           }                          
                      
                         }   
-                    //inputOptimizer = userInput.install ?: ''
-
-                    //echo("You Choice Selection: ${inputOptimizer}")
                 }
            }
         }
     }
 }
-Node
