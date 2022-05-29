@@ -26,7 +26,7 @@ pipeline {
 
                                 choice(choices: 'Update',
                                 description: 'Optimizer Selection',
-                                name: 'update')
+                                name: 'update'),
 
                                 booleanParam(defaultValue: false, description: '', name: 'DB'),
                                 booleanParam(defaultValue: false, description: '', name: 'FTB'),
