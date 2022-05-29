@@ -25,7 +25,7 @@ pipeline {
                                 booleanParam(defaultValue: true, description: '', name: 'VMS'),
                             ])
 
-                            def userInput = input(
+                        def userInput = input(
                             id: 'userInput', message: 'Update',
                             parameters: [
 
