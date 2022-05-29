@@ -6,7 +6,6 @@ pipeline {
         stage('selection Options') {
             steps {
                 script {
-
                     def userInput = input(
                     id: 'userInput', message: 'Installation',
                     parameters: [
@@ -14,6 +13,7 @@ pipeline {
                      choice(choices: 'Installation',
                      description: 'Optimizer Selection',
                      name: 'install'),
+                    ])
 
                         booleanParam(defaultValue: true, description: '', name: 'DB'),
                         booleanParam(defaultValue: true, description: '', name: 'FTB'),
@@ -31,7 +31,7 @@ pipeline {
                         nodejs = userInput.NODEJS ?: ''
                         lpr = userInput.LPR ?: ''
                         vms = userInput.VMS ?: ''
-                    ])
+                    
 
                     if (install == "Installation") {
                      echo("installing apps")
@@ -65,6 +65,7 @@ pipeline {
                         choice(choices: 'Update',
                         description: 'Optimizer Selection',
                         name: 'update'),
+                    ])
 
                         booleanParam(defaultValue: false, description: '', name: 'DB'),
                         booleanParam(defaultValue: false, description: '', name: 'FTB'),
@@ -82,7 +83,7 @@ pipeline {
                         nodejs = userInput.NODEJS ?: ''
                         lpr = userInput.LPR ?: ''
                         vms = userInput.VMS ?: ''
-                    ])
+                    
 
 
                     if (install == "Update") {
