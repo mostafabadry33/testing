@@ -6,8 +6,8 @@ pipeline {
         stage('selection Options') {
             steps {
                 script {
-                    // Get the input
-                            def userInput = input(
+                    
+                    def userInput = input(
                                id: 'userInput', message: 'Installation',
                                parameters: [
 
@@ -32,8 +32,32 @@ pipeline {
                                 lpr = userInput.LPR ?: ''
                                 vms = userInput.VMS ?: ''
                             ])
+                            if (install == "Installation") {
+                              echo("installing apps")
+                             if (db==true){
+                              echo("installing db")
+                              }
+                             if (ftb==true){
+                              echo("installing ftb")
+                              }
+                             if (ntp==true){
+                              echo("installing ntp")
+                              }
+                             if (its==true){
+                              echo("installing its")
+                              }
+                             if (nodejs==true){
+                              echo("installing nodejs")
+                              }
+                             if (lpr==true){
+                              echo("installing lpr")
+                             }
+                             if (vms==true){
+                              echo("installing vms")
+                               }
+                            }
 
-                            def userInput = input(
+                    def userInput = input(
                                id: 'userInput', message: 'Update',
                                parameters: [
 
@@ -59,54 +83,31 @@ pipeline {
                                 vms = userInput.VMS ?: ''
                             ])
 
-                        if (install == "Installation") {
-                          echo("installing apps")
-                          if (db==true){
-                              echo("installing db")
-                            }
-                          if (ftb==true){
-                              echo("installing ftb")
-                            }
-                          if (ntp==true){
-                              echo("installing ntp")
-                            }
-                          if (its==true){
-                              echo("installing its")
-                            }
-                          if (nodejs==true){
-                              echo("installing nodejs")
-                            }
-                          if (lpr==true){
-                              echo("installing lpr")
-                            }
-                            if (vms==true){
-                              echo("installing vms")
-                            }
-                        }
-                        if (install == "Update") {
-                          echo("updating apps")
-                          if (db==true){
+
+                            if (install == "Update") {
+                               echo("updating apps")
+                             if (db==true){
                               echo("updating db")
-                            }
-                          if (ftb==true){
+                               }
+                             if (ftb==true){
                               echo("updating ftb")
-                            }
-                          if (ntp==true){
+                               }
+                             if (ntp==true){
                               echo("updating ntp")
-                            }
-                          if (its==true){
+                             }
+                             if (its==true){
                               echo("updating its")
-                            }
-                          if (nodejs==true){
+                             }
+                             if (nodejs==true){
                               echo("updating nodejs")
-                            }
-                          if (lpr==true){
+                             }
+                             if (lpr==true){
                               echo("updating lpr")
-                            }
-                            if (vms==true){
+                             }
+                             if (vms==true){
                               echo("updating vms")
+                             }
                             }
-                    }
                 }
            }
         }
