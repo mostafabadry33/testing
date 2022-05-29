@@ -8,7 +8,7 @@ pipeline {
                 script {
                     // Get the input
                         def userInput = input(
-                            id: 'userInput', message: 'Installation\nUpdate',
+                            id: 'userInput', message: 'Installation',
                             parameters: [
 
                                 choice(choices: 'Installation',
@@ -23,6 +23,12 @@ pipeline {
                                 booleanParam(defaultValue: true, description: '', name: 'NODEJS'),
                                 booleanParam(defaultValue: true, description: '', name: 'LPR'),
                                 booleanParam(defaultValue: true, description: '', name: 'VMS'),
+                            ])
+
+                            def userInput = input(
+                            id: 'userInput', message: 'Update',
+                            parameters: [
+
 
                                 choice(choices: 'Update',
                                 description: 'Optimizer Selection',
