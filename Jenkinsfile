@@ -15,7 +15,6 @@ pipeline {
                                 description: 'Optimizer Selection',
                                 name: 'install'),
 
-
                                 booleanParam(defaultValue: true, description: '', name: 'DB'),
                                 booleanParam(defaultValue: true, description: '', name: 'FTB'),
                                 booleanParam(defaultValue: true, description: '', name: 'NTP'),
@@ -23,12 +22,20 @@ pipeline {
                                 booleanParam(defaultValue: true, description: '', name: 'NODEJS'),
                                 booleanParam(defaultValue: true, description: '', name: 'LPR'),
                                 booleanParam(defaultValue: true, description: '', name: 'VMS'),
+
+                                install = userInput.install ?: ''
+                                db = userInput.DB ?: ''
+                                ftb = userInput.FTB ?: ''
+                                ntp = userInput.NTP ?: ''
+                                its = userInput.ITS ?: ''
+                                nodejs = userInput.NODEJS ?: ''
+                                lpr = userInput.LPR ?: ''
+                                vms = userInput.VMS ?: ''
                             ])
 
                         def userInput = input(
                             id: 'userInput', message: 'Update',
                             parameters: [
-
 
                                 choice(choices: 'Update',
                                 description: 'Optimizer Selection',
@@ -41,15 +48,16 @@ pipeline {
                                 booleanParam(defaultValue: false, description: '', name: 'NODEJS'),
                                 booleanParam(defaultValue: false, description: '', name: 'LPR'),
                                 booleanParam(defaultValue: false, description: '', name: 'VMS'),
+
+                                update = userInput.update ?: ''
+                                db = userInput.DB ?: ''
+                                ftb = userInput.FTB ?: ''
+                                ntp = userInput.NTP ?: ''
+                                its = userInput.ITS ?: ''
+                                nodejs = userInput.NODEJS ?: ''
+                                lpr = userInput.LPR ?: ''
+                                vms = userInput.VMS ?: ''
                             ])
-                        install = userInput.install ?: ''
-                        db = userInput.DB ?: ''
-                        ftb = userInput.FTB ?: ''
-                        ntp = userInput.NTP ?: ''
-                        its = userInput.ITS ?: ''
-                        nodejs = userInput.NODEJS ?: ''
-                        lpr = userInput.LPR ?: ''
-                        vms = userInput.VMS ?: ''
 
                         if (install == "Installation") {
                           echo("installing apps")
