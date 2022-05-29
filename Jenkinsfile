@@ -58,7 +58,7 @@ pipeline {
                         }
                     }
 
-                    def userInput = input(
+                    def userInput2 = input(
                     id: 'userInput', message: 'Update',
                     parameters: [
 
@@ -76,16 +76,16 @@ pipeline {
                         booleanParam(defaultValue: false, description: '', name: 'VMS'),
                     ])
 
-                    update = userInput.update ?: ''
-                    db = userInput.DB ?: ''
-                    ftb = userInput.FTB ?: ''
-                    ntp = userInput.NTP ?: ''
-                    its = userInput.ITS ?: ''
-                    nodejs = userInput.NODEJS ?: ''
-                    lpr = userInput.LPR ?: ''
-                    vms = userInput.VMS ?: ''
+                    update = userInput2.update ?: ''
+                    db = userInput2.DB ?: ''
+                    ftb = userInput2.FTB ?: ''
+                    ntp = userInput2.NTP ?: ''
+                    its = userInput2.ITS ?: ''
+                    nodejs = userInput2.NODEJS ?: ''
+                    lpr = userInput2.LPR ?: ''
+                    vms = userInput2.VMS ?: ''
 
-                    if (install == "Update") {
+                    if (update == "Update") {
                         echo("updating apps")
                         if (db==true){
                          echo("updating db")
