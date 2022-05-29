@@ -7,9 +7,9 @@ pipeline {
             steps {
                 script {
                     // Get the input
-                        def userInput = input(
-                            id: 'userInput', message: 'Installation',
-                            parameters: [
+                            def userInput = input(
+                               id: 'userInput', message: 'Installation',
+                               parameters: [
 
                                 choice(choices: 'Installation',
                                 description: 'Optimizer Selection',
@@ -33,9 +33,9 @@ pipeline {
                                 vms = userInput.VMS ?: ''
                             ])
 
-                        def userInput = input(
-                            id: 'userInput', message: 'Update',
-                            parameters: [
+                            def userInput = input(
+                               id: 'userInput', message: 'Update',
+                               parameters: [
 
                                 choice(choices: 'Update',
                                 description: 'Optimizer Selection',
