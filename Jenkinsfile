@@ -20,24 +20,10 @@ pipeline {
                         nodes.add(c.node.selfLabel.name)
                     }
 
-                //    def userInput = input(
-                //     id: 'userInput', message: 'Node Selection',
-                    // properties([
-                    //     parameters: ([
+                    env.NODE_NAME = input message: 'SELECT NODE', ok: 'Release!',
+                            parameters: [choice(name: 'NODE_NAME', choices: nodes, description: 'What is the NODE TO RUN?')]
 
-                    //         choice(choices: nodes, description: 'desc', name: 'node')
-
-                    //     ])
-
-                    // ])
-
-                    // echo params.node
-                    // selectedNode = params.node
-
-                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-                            parameters: [choice(name: 'RELEASE_SCOPE', choices: nodes, description: 'What is the release scope?')]
-
-                    echo "Release scope selected: ${env.RELEASE_SCOPE}"
+                    echo "Release scope selected: ${env.NODE_NAME}"
                       
                 }
             }
@@ -45,6 +31,7 @@ pipeline {
         stage('selection Options') {
             steps {
                 script {
+                    echo "Node Selected ${env.NODE_NAME}"
                     def userInput = input(
                     id: 'userInput', message: 'Installation',
                     parameters: [
