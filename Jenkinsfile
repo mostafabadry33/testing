@@ -20,12 +20,17 @@ pipeline {
                         nodes.add(c.node.selfLabel.name)
                     }
 
-                   def userInput = input(
-                    id: 'userInput', message: 'Node Selection',
-                    parameters: [
+                //    def userInput = input(
+                //     id: 'userInput', message: 'Node Selection',
+                    properties([
+                        parameters: ([
 
-                        choice(choices: nodes, description: 'desc', name: 'node')
+                            choice(choices: nodes, description: 'desc', name: 'node')
 
+                        ],
+
+                        description: 'This is the branch that we will build',
+                        name: 'param3')
                     ])
 
                     echo params.node
