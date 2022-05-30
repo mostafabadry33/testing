@@ -22,17 +22,23 @@ pipeline {
 
                 //    def userInput = input(
                 //     id: 'userInput', message: 'Node Selection',
-                    properties([
-                        parameters: ([
+                    // properties([
+                    //     parameters: ([
 
-                            choice(choices: nodes, description: 'desc', name: 'node')
+                    //         choice(choices: nodes, description: 'desc', name: 'node')
 
-                        ])
+                    //     ])
 
-                    ])
+                    // ])
 
-                    echo params.node
-                    selectedNode = params.node
+                    // echo params.node
+                    // selectedNode = params.node
+
+                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
+                            parameters: [choice(name: 'RELEASE_SCOPE', choices: nodes, description: 'What is the release scope?')]
+                    }
+
+                    echo "Release scope selected: ${env.RELEASE_SCOPE}"
                       
                 }
             }
