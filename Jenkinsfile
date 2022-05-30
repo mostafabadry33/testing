@@ -147,7 +147,9 @@ pipeline {
            }
         }
         stage('Login') {
-            agent{label ${env.NODE_NAME}}
+            agent {
+                echo "Node Selected ${env.NODE_NAME}"
+            }
             
             steps{
                 echo 'Login To DockerHub..'
