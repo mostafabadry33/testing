@@ -13,20 +13,28 @@ pipeline {
                     id: 'userInput', message: 'Node Selection',
                     parameters: [
 
-                        choice(choices: 'Nodes',
+                        // choice(choices: 'Nodes',
 
-                        description: 'Node Selection', name: 'nodes'),
+                        // description: 'Node Selection', name: 'nodes'),
 
 
-                        booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
-                        // jenkins.model.Jenkins.get().computers.each { c ->
-                        //     // echo "new node"
-                        //     // echo c.node.selfLabel.name
-                        //     String nodeName = c.node.selfLabel.name
-                        //     // if (c.node.labelString.contains(label)) {
-                        //     //    nodes.add(c.node.selfLabel.name)
-                        //     // }
-                        // }
+                        // booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
+
+                        jenkins.model.Jenkins.get().computers.each { c ->
+                            choice(choices: 'Nodes',
+
+                            description: 'Node Selection', name: 'nodes'),
+
+
+                            booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
+                            
+                            // echo "new node"
+                            // echo c.node.selfLabel.name
+                            // String nodeName = c.node.selfLabel.name
+                            // if (c.node.labelString.contains(label)) {
+                            //    nodes.add(c.node.selfLabel.name)
+                            // }
+                        }
                     ])
 
                     echo userInput.nodes
