@@ -20,21 +20,17 @@ pipeline {
 
                         // booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
 
-                        jenkins.model.Jenkins.get().computers.each { c ->
-                            choice(choices: 'Nodes',
+                        choice(choices: ['opt1', 'opt2', 'opt3'], description: 'desc', name: 'bla')
 
-                            description: 'Node Selection', name: 'nodes'),
+                        // jenkins.model.Jenkins.get().computers.each { c ->
 
-
-                            booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
-                            
-                            // echo "new node"
-                            // echo c.node.selfLabel.name
-                            // String nodeName = c.node.selfLabel.name
-                            // if (c.node.labelString.contains(label)) {
-                            //    nodes.add(c.node.selfLabel.name)
-                            // }
-                        }
+                        //     // echo "new node"
+                        //     // echo c.node.selfLabel.name
+                        //     // String nodeName = c.node.selfLabel.name
+                        //     // if (c.node.labelString.contains(label)) {
+                        //     //    nodes.add(c.node.selfLabel.name)
+                        //     // }
+                        // }
                     ])
 
                     echo userInput.nodes
