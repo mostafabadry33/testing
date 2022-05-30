@@ -27,10 +27,8 @@ pipeline {
 
                             choice(choices: nodes, description: 'desc', name: 'node')
 
-                        ],
+                        ])
 
-                        description: 'This is the branch that we will build',
-                        name: 'param3')
                     ])
 
                     echo params.node
