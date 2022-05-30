@@ -146,7 +146,7 @@ pipeline {
                 }
            }
         }
-        stage('Login')  {
+        stage('Login') {
             echo "Node Selected ${env.NODE_NAME}"
             steps{
              echo 'Login To DockerHub..'
