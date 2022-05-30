@@ -18,15 +18,15 @@ pipeline {
                         description: 'Node Selection', name: 'nodes'),
 
 
-                        jenkins.model.Jenkins.get().computers.each { c ->
-                            // echo "new node"
-                            // echo c.node.selfLabel.name
-                            String nodeName = c.node.selfLabel.name
-                            booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
-                            // if (c.node.labelString.contains(label)) {
-                            //    nodes.add(c.node.selfLabel.name)
-                            // }
-                        }
+                        booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
+                        // jenkins.model.Jenkins.get().computers.each { c ->
+                        //     // echo "new node"
+                        //     // echo c.node.selfLabel.name
+                        //     String nodeName = c.node.selfLabel.name
+                        //     // if (c.node.labelString.contains(label)) {
+                        //     //    nodes.add(c.node.selfLabel.name)
+                        //     // }
+                        // }
                     ])
 
                     echo userInput.nodes
