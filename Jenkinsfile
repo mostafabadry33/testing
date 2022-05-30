@@ -7,7 +7,7 @@ pipeline {
         stage('label list') {
             steps{
                 script{
-                   @NonCPS
+                   
                     def hostNames(label) {
                      def nodes = []
                        jenkins.model.Jenkins.get().computers.each { c ->
@@ -15,7 +15,7 @@ pipeline {
                                nodes.add(c.node.selfLabel.name)
                             }
                        }
-                      return nodes
+                      
                     }
                 }
             }
