@@ -147,9 +147,9 @@ pipeline {
            }
         }
         stage('Login') {
+            agent{${env.NODE_NAME}}
             
             steps{
-                echo "Node Selected ${env.NODE_NAME}"
                 echo 'Login To DockerHub..'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
