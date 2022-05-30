@@ -21,7 +21,7 @@ pipeline {
                         jenkins.model.Jenkins.get().computers.each { c ->
                             // echo "new node"
                             // echo c.node.selfLabel.name
-                            booleanParam(defaultValue: true, description: '', name: c.node.selfLabel.name)
+                            booleanParam(defaultValue: true, description: '', name: c.node.selfLabel.name.toString())
                             // if (c.node.labelString.contains(label)) {
                             //    nodes.add(c.node.selfLabel.name)
                             // }
