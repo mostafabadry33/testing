@@ -1,8 +1,25 @@
 
 pipeline {
-    agent { label 'BADRY.PC' }
+
+    
 
     stages {
+        stage('label list') {
+            steps{
+                script{
+                   @NonCPS
+                    def hostNames(label) {
+                     def nodes = []
+                       jenkins.model.Jenkins.get().computers.each { c ->
+                            if (c.node.labelString.contains(label)) {
+                               nodes.add(c.node.selfLabel.name)
+                            }
+                       }
+                      return nodes
+                    }
+                }
+            }
+        }
         stage('selection Options') {
             steps {
                 script {
