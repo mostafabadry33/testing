@@ -15,10 +15,11 @@ pipeline {
 
                         echo "new node"
                         echo c.node.selfLabel.name
-                        String nodeName = c.node.selfLabel.name
-                        if (c.node.labelString.contains(label)) {
-                           nodes.add(c.node.selfLabel.name)
-                        }
+
+                        nodes.add(c.node.selfLabel.name)
+                        // String nodeName = c.node.selfLabel.name
+                        // if (c.node.labelString.contains(label)) {
+                        // }
                     }
 
                    def userInput = input(
