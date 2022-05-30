@@ -1,4 +1,12 @@
-def selectedNode
+
+def db
+def ftb
+def ntp
+def its
+def nodejs
+def lpr
+def vms
+  
 
 pipeline {
 
@@ -137,6 +145,13 @@ pipeline {
                     }
                 }
            }
+        }
+        stage('Login')  {
+            echo "Node Selected ${env.NODE_NAME}"
+            steps{
+             echo 'Login To DockerHub..'
+             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
         }
     }
 }
