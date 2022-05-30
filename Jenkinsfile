@@ -28,8 +28,8 @@ pipeline {
 
                     ])
 
-                    echo userInput.node
-                    selectedNode = userInput.node
+                    echo params.node
+                    selectedNode = params.node
                       
                 }
             }
