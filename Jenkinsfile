@@ -1,3 +1,4 @@
+def selectedNode
 
 pipeline {
 
@@ -17,36 +18,18 @@ pipeline {
                         echo c.node.selfLabel.name
 
                         nodes.add(c.node.selfLabel.name)
-                        // String nodeName = c.node.selfLabel.name
-                        // if (c.node.labelString.contains(label)) {
-                        // }
                     }
 
                    def userInput = input(
                     id: 'userInput', message: 'Node Selection',
                     parameters: [
 
-                        // choice(choices: 'Nodes',
+                        choice(choices: nodes, description: 'desc', name: 'node')
 
-                        // description: 'Node Selection', name: 'nodes'),
-
-
-                        // booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
-
-                        choice(choices: nodes, description: 'desc', name: 'bla')
-
-                        // jenkins.model.Jenkins.get().computers.each { c ->
-
-                        //     // echo "new node"
-                        //     // echo c.node.selfLabel.name
-                        //     // String nodeName = c.node.selfLabel.name
-                        //     // if (c.node.labelString.contains(label)) {
-                        //     //    nodes.add(c.node.selfLabel.name)
-                        //     // }
-                        // }
                     ])
 
-                    echo userInput.nodes
+                    echo userInput.node
+                    selectedNode = userInput.node
                       
                 }
             }
