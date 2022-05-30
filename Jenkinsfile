@@ -22,7 +22,7 @@ pipeline {
                             // echo "new node"
                             // echo c.node.selfLabel.name
                             String nodeName = c.node.selfLabel.name
-                            booleanParam(defaultValue: true, description: '', name: nodeName.toString())
+                            booleanParam(defaultValue: true, description: '', name: 'nodeName.toString()')
                             // if (c.node.labelString.contains(label)) {
                             //    nodes.add(c.node.selfLabel.name)
                             // }
