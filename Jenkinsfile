@@ -7,7 +7,6 @@ def nodejs
 def lpr
 def vms
   
-
 pipeline {
 
     agent none
@@ -67,30 +66,7 @@ pipeline {
                     vms = userInput.VMS ?: ''
 
 
-                    if (install == "Installation") {
-                     echo("installing apps")
-                        if (db==true){
-                         echo("installing db")
-                        }
-                        if (ftb==true){
-                         echo("installing ftb")
-                        }
-                        if (ntp==true){
-                         echo("installing ntp")
-                        }
-                        if (its==true){
-                         echo("installing its")
-                        }
-                        if (nodejs==true){
-                         echo("installing nodejs")
-                        }
-                        if (lpr==true){
-                         echo("installing lpr")
-                        }
-                        if (vms==true){
-                         echo("installing vms")
-                        }
-                    }
+
 
                     def userInput2 = input(
                     id: 'userInput', message: 'Update',
@@ -119,6 +95,46 @@ pipeline {
                     lpr = userInput2.LPR ?: ''
                     vms = userInput2.VMS ?: ''
 
+
+                }
+           }
+        }
+        stage('Login')  {
+            steps  {
+                echo 'Login To DockerHub..'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+
+
+        stage('pulling images from dockerhub') {
+            steps{
+                script{
+                    echo "Node Selected ${env.NODE_NAME}"
+                    if (install == "Installation") {
+                     echo("installing apps")
+                        if (db==true){
+                         echo("installing db")
+                        }
+                        if (ftb==true){
+                         echo("installing ftb")
+                        }
+                        if (ntp==true){
+                         echo("installing ntp")
+                        }
+                        if (its==true){
+                         echo("installing its")
+                        }
+                        if (nodejs==true){
+                         echo("installing nodejs")
+                        }
+                        if (lpr==true){
+                         echo("installing lpr")
+                        }
+                        if (vms==true){
+                         echo("installing vms")
+                        }
+                    }
                     if (update == "Update") {
                         echo("updating apps")
                         if (db==true){
@@ -143,16 +159,7 @@ pipeline {
                          echo("updating vms")
                         }
                     }
-                }
-           }
-        }
-        stage('Login') {  
-            steps{
-                script{
-                    echo"Node Selected ${env.NODE_NAME}"
-                
-                   echo 'Login To DockerHub..'
-                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                    
                 }
             }
         }
